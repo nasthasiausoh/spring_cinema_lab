@@ -45,7 +45,7 @@ public class MovieController {
 
 //    @PatchMapping
 //    public ResponseEntity<Movie> deleteNewMovie(@RequestParam String title, @RequestParam String rating, @RequestParam int duration){
-//        movieService.removeMovies(title, rating, duration);
+//        movieService.removeMoviesByInt(int id);
 //        Movie movie = new Movie(title, rating , duration);
 //        return new ResponseEntity<>(movie, HttpStatus.CREATED);
 //    }

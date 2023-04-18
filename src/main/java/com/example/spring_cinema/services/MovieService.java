@@ -38,11 +38,10 @@ public class MovieService {
     }
 
 //    method for add movies:
-//    public void removeMovies(String title, String rating, int duration){
-//        Movie movie = new Movie(title, rating, duration);
-//        movieRepository.delete(movie);
-//        movieRepository.save(movie);
+//    public void removeMoviesByInt(int id){
+//        movieRepository.deleteById(id);
 //    }
+
 
 
 
