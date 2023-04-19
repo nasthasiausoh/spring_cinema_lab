@@ -39,6 +39,7 @@ public class MovieController {
         movieService.addMovies(title, rating, duration);
         Movie movie = new Movie(title, rating , duration);
         return new ResponseEntity<>(movie, HttpStatus.CREATED);
+        // this is not correct i dont think. we shouldn't be submitted data through the url. so we should have @requestparam here so we shouldn't be able to do localhost:8080/movies?title=Creed&rating=15&duration=118. instead we should be submitting the data through the @RequestBody.
     }
 
 // ?title=Creed&rating=15&duration=118
@@ -51,3 +52,5 @@ public class MovieController {
 //    }
 
 }
+
+// the controller is th eplace where we would have the ResponseEntity<>

@@ -67,3 +67,4 @@ public class Movie {
 
     //
 }
+// NOTE TO SELF: Check the solutions, i added some notes in there during the lab review
