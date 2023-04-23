@@ -5,6 +5,7 @@ import com.example.spring_cinema.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,20 +28,36 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
-//    Method for adding movies:
-    public void addMovies(String title, String rating, int duration){
-        Movie movie = new Movie(title, rating, duration);
-        movieRepository.save(movie);
-    }
-
+//      method for getting movies by id:
     public Optional<Movie> getMovieById(int id){
         return movieRepository.findById(id);
     }
 
-//    method for add movies:
-//    public void removeMoviesByInt(int id){
-//        movieRepository.deleteById(id);
+
+////    Method for adding movies:
+//    public void addMovies(String title, String rating, int duration){
+//        Movie movie = new Movie(title, rating, duration);
+//        movieRepository.save(movie);
 //    }
+
+//    BETTER METHOD FOR ADDING MOVIES:
+    public Movie addNewMovies(Movie movie){
+        movieRepository.save(movie);
+        return movie;
+    }
+
+//    Method for updating movies:
+    public Movie updateMovie(Movie movie){
+        movieRepository.save(movie);
+        return movie;
+    }
+
+
+
+//    method for deleting movies:
+    public void removeMoviesByInt(int id){
+        movieRepository.deleteById(id);
+    }
 
 
 
@@ -55,5 +72,19 @@ public class MovieService {
 
     public void setMovie(Movie movie) {
         this.movie = movie;
+    }
+
+
+    public List<Movie> filterMoviesByDuration(Integer maxDuration) {
+        List<Movie> allMovies = movieRepository.findAll();
+        List<Movie> filteredMovies = new ArrayList<>();
+
+        for (Movie movie : allMovies) {
+            if (movie.getDuration() <= maxDuration){
+                filteredMovies.add(movie);
+            }
+        }
+
+        return filteredMovies;
     }
 }
